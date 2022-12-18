@@ -1,0 +1,22 @@
+{
+  "name": "json-to-typescript",
+  "version": "1.0.0",
+  "description": "一个js转ts的工具支持",
+  "types": "build/src/index.d.ts",
+  "main": "build/src/index.js",
+  "repository": "https://github.com/19981008/json-to-typescript",
+  "author": "weishunyu <2072738187@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rmdir build /S/Q && tsc",
+    "start": "nodemon -e ts -w src -x 'ts-node src/index.ts'",
+    "test": "npm run build && mocha ./test/js-integration/index.js && mocha ./build/test",
+    "test-reload": "nodemon -e ts -w test -w src -x 'npm test'"
+  },
+  "dependencies": {
+    "es7-shim": "^6.0.0",
+    "hash.js": "^1.1.7",
+    "rm": "^0.1.8",
+    "typescript": "^4.9.4"
+  }
+}
