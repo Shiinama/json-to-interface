@@ -2,6 +2,7 @@
  * @Description:
  * @Date: 2022-12-12 19:12:51
  */
+import * as hash from 'hash.js';
 import { TypeGroup } from '../model/model';
 export function isObject(value) {
   return (
@@ -10,6 +11,9 @@ export function isObject(value) {
   );
 }
 
+export function Hash(content: string): string {
+  return (hash as any).sha1().update(content).digest('hex');
+}
 export function isArray(value) {
   return Object.prototype.toString.call(value) === '[object Array]';
 }

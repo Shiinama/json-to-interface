@@ -18,3 +18,10 @@ declare type DefaultOption = {
 export interface finallyOptions extends DefaultOption {
   fkey?: string;
 }
+
+interface $asc {
+  c: $ccc;
+}
+interface $ccc {
+  b: number;
+}

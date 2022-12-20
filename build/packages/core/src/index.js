@@ -18,6 +18,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var until_1 = require("../until");
 var model_1 = require("../model/model");
 var get_types_value_1 = require("./formatter-data/get-types-value");
+var create_interface_1 = require("./ts-interface/create-interface");
 var es7_shim_1 = require("es7-shim/es7-shim");
 (0, es7_shim_1.shim)();
 var defaultOptions = {
@@ -31,8 +32,10 @@ function JsonToTS(json, options) {
     }
     // 返回数组结构的types
     var typesValue = (0, get_types_value_1.getTypesValue)(json, finallyOptions);
+    typesValue['key'] = finallyOptions.fKey;
     console.log(typesValue);
-    return ['1'];
+    var data = (0, create_interface_1.out)(typesValue);
+    return data;
 }
 exports.default = JsonToTS;
 //# sourceMappingURL=index.js.map

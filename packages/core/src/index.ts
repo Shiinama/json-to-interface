@@ -5,6 +5,7 @@
 import { getJsonType } from '../until';
 import { TypeGroup, finallyOptions } from '../model/model';
 import { getTypesValue } from './formatter-data/get-types-value';
+import { out } from './ts-interface/create-interface';
 import { shim } from 'es7-shim/es7-shim';
 shim();
 const defaultOptions = {
@@ -26,6 +27,8 @@ export default function JsonToTS<JsonTypes>(
   }
   // 返回数组结构的types
   const typesValue = getTypesValue(json, finallyOptions);
+  typesValue['key'] = finallyOptions.fKey;
   console.log(typesValue);
-  return ['1'];
+  const data = out(typesValue);
+  return data;
 }

@@ -14,9 +14,13 @@
     "test-reload": "nodemon -e ts -w test -w src -x 'npm test'"
   },
   "dependencies": {
+    "@types/mocha": "^10.0.1",
     "es7-shim": "^6.0.0",
     "hash.js": "^1.1.7",
     "rm": "^0.1.8",
     "typescript": "^4.9.4"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0"
   }
 }
