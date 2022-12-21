@@ -11,4 +11,7 @@ var TypeGroup;
     TypeGroup[TypeGroup["Object"] = 1] = "Object";
     TypeGroup[TypeGroup["Primitive"] = 2] = "Primitive";
 })(TypeGroup = exports.TypeGroup || (exports.TypeGroup = {}));
+var json = {
+    arr: [{ a: 1, b: 2 }, { g: 1, d: 2 }, [1, { a: 1, b: 2 }]]
+};
 //# sourceMappingURL=model.js.map

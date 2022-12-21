@@ -5,12 +5,11 @@
 const JsonToTS = require('./build/packages/core/src/index').default;
 
 const json = {
-  a: 1,
-  c: {
-    b: 1,
-    c: 2
-  },
-  arr: [42, 32, 1, { a: 1 }, { b: 2 }]
+  arr: [
+    { a: 1, b: 2 },
+    { g: 1, b: 2 },
+    { a: 1, b: 2 }
+  ]
 };
 debugger;
 const data = JsonToTS(json);

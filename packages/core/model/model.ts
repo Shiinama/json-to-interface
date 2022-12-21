@@ -19,9 +19,22 @@ export interface finallyOptions extends DefaultOption {
   fkey?: string;
 }
 
-interface $asc {
-  c: $ccc;
-}
-interface $ccc {
+const json: OriginKey = {
+  arr: [{ a: 1, b: 2 }, { g: 1, d: 2 }, [1, { a: 1, b: 2 }]]
+};
+
+interface Arr0 {
+  a: number;
   b: number;
+}
+interface Arr1 {
+  g: number;
+  d: number;
+}
+interface Arr21 {
+  a: number;
+  b: number;
+}
+interface OriginKey {
+  arr: (Arr0 | Arr1 | (number | Arr21)[])[];
 }

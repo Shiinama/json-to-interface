@@ -28,7 +28,6 @@ export default function JsonToTS<JsonTypes>(
   // 返回数组结构的types
   const typesValue = getTypesValue(json, finallyOptions);
   typesValue['key'] = finallyOptions.fKey;
-  console.log(typesValue);
   const data = out(typesValue);
   return data;
 }

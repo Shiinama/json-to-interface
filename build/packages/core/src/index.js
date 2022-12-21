@@ -33,7 +33,6 @@ function JsonToTS(json, options) {
     // 返回数组结构的types
     var typesValue = (0, get_types_value_1.getTypesValue)(json, finallyOptions);
     typesValue['key'] = finallyOptions.fKey;
-    console.log(typesValue);
     var data = (0, create_interface_1.out)(typesValue);
     return data;
 }
