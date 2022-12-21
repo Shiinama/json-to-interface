@@ -5,18 +5,6 @@
   "command": "npm",
   "tasks": [
     {
-      "label": "install",
-      "type": "shell",
-      "args": ["install"],
-      "problemMatcher": []
-    },
-    {
-      "label": "update",
-      "type": "shell",
-      "args": ["update"],
-      "problemMatcher": []
-    },
-    {
       "label": "test",
       "type": "shell",
       "args": ["run", "test"],

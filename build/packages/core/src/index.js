@@ -37,4 +37,6 @@ function JsonToTS(json, options) {
     return data;
 }
 exports.default = JsonToTS;
+JsonToTS.default = JsonToTS;
+module.exports = JsonToTS;
 //# sourceMappingURL=index.js.map

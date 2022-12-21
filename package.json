@@ -1,26 +1,33 @@
 {
-  "name": "json-to-typescript",
-  "version": "1.0.0",
+  "name": "js-to-interface",
+  "version": "0.0.1",
   "description": "一个js转ts的工具支持",
-  "types": "build/src/index.d.ts",
-  "main": "build/src/index.js",
-  "repository": "https://github.com/19981008/json-to-typescript",
+  "keywords": [
+    "typescript",
+    "ts",
+    "interface",
+    "json",
+    "js",
+    "types"
+  ],
+  "types": "build/packages/core/src/index.d.ts",
+  "main": "build/packages/core/src/index.js",
+  "repository": "https://github.com/19981008/json-to-interface",
   "author": "weishunyu <2072738187@qq.com>",
   "license": "MIT",
   "scripts": {
     "build": "rmdir build /S/Q && tsc",
-    "start": "nodemon -e ts -w src -x 'ts-node src/index.ts'",
-    "test": "npm run build && mocha ./test/js-integration/index.js && mocha ./build/test",
-    "test-reload": "nodemon -e ts -w test -w src -x 'npm test'"
+    "test": "npm run build && mocha ./test/index.js && mocha ./build/test"
   },
   "dependencies": {
     "@types/mocha": "^10.0.1",
     "es7-shim": "^6.0.0",
-    "hash.js": "^1.1.7",
-    "rm": "^0.1.8",
-    "typescript": "^4.9.4"
+    "hash.js": "^1.1.7"
   },
   "devDependencies": {
-    "mocha": "^10.2.0"
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.11.17",
+    "mocha": "^10.2.0",
+    "typescript": "^4.9.4"
   }
 }

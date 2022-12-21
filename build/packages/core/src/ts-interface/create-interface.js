@@ -103,7 +103,7 @@ function dealArray(_a) {
                 value: merageValue
             });
         }
-        return "".concat(capitalize(key));
+        return "".concat(capitalize(key), "[]");
     }
     else {
         // 非对象数组的key需要递增

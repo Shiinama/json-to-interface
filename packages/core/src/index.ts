@@ -31,3 +31,6 @@ export default function JsonToTS<JsonTypes>(
   const data = out(typesValue);
   return data;
 }
+
+JsonToTS.default = JsonToTS;
+module.exports = JsonToTS;

@@ -98,7 +98,7 @@ function dealArray({ types, key, value }) {
         value: merageValue
       });
     }
-    return `${capitalize(key)}`;
+    return `${capitalize(key)}[]`;
   } else {
     // 非对象数组的key需要递增
     let KeySet = new Set();

@@ -7,6 +7,11 @@
   "resolved" "https://registry.npmjs.org/@types/mocha/-/mocha-10.0.1.tgz"
   "version" "10.0.1"
 
+"@types/node@^18.11.17":
+  "integrity" "sha512-HJSUJmni4BeDHhfzn6nF0sVmd1SMezP7/4F0Lq+aXzmp2xm9O7WXrUtHW/CHlYVtZUbByEvWidHqRtcJXGF2Ng=="
+  "resolved" "https://registry.npmjs.org/@types/node/-/node-18.11.17.tgz"
+  "version" "18.11.17"
+
 "ansi-colors@4.1.1":
   "integrity" "sha512-JoX0apGbHaUJBNl6yF+p6JAFYZ666/hhCGKN5t9QFjbJQKUU/g8MNbFDbvfrgKXvI1QpZplPOnwIo99lX/AAmA=="
   "resolved" "https://registry.npmjs.org/ansi-colors/-/ansi-colors-4.1.1.tgz"
