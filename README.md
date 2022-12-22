@@ -3,15 +3,32 @@
  * @Date: 2022-12-12 16:21:55
 -->
 
-# json-to-typescript
+# json-to-interface
 
 json 转为 typescript 接口
 
 # 关于使用
 
 通常来说，越完善的文档，提供的信息就越详细。
+npm i js-to-interface 基础包
 
-## 1、json to ts
+```javascript
+const jstots = require('js-to-interface');
+let json = {
+  a: 1,
+  b: 2,
+  arr: [
+    { a: 1, b: 3 },
+    { d: 5, h: 6 }
+  ],
+  c: { ca: 1, c: { f: 5 } },
+  d: { f: 5 }
+};
+const data = jstots(json, { fKey: 'json' });
+data.forEach(i => {
+  console.log(i);
+});
+```
 
 ```javascript
 const json = {

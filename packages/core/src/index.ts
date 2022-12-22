@@ -2,8 +2,8 @@
  * @Description:
  * @Date: 2022-12-12 16:29:59
  */
-import { getJsonType } from '../until';
-import { TypeGroup, finallyOptions } from '../model/model';
+import { isObject } from '../until';
+import { finallyOptions } from '../model/model';
 import { getTypesValue } from './formatter-data/get-types-value';
 import { out } from './ts-interface/create-interface';
 import { shim } from 'es7-shim/es7-shim';
@@ -20,10 +20,8 @@ export default function JsonToTS<JsonTypes>(
     ...options
   };
 
-  const JsonType = getJsonType(json);
-
-  if (JsonType === TypeGroup.Primitive) {
-    throw new Error('仅支持对象和数组');
+  if (!isObject(json)) {
+    throw new Error('Only Object are supported');
   }
   // 返回数组结构的types
   const typesValue = getTypesValue(json, finallyOptions);

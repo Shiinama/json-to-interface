@@ -75,7 +75,6 @@ function incrementKey(key) {
     var count = 0;
     var originKey = key;
     function fn() {
-        console.log(count);
         var newKey = count ? "".concat(originKey).concat(count) : originKey;
         count++;
         return newKey;
@@ -144,7 +143,6 @@ function switchQuoteType(intermediateData, needOptimize) {
             else {
                 HashNameMap[key] = 1;
             }
-            console.log(HashNameMap);
             // 仅仅给引用类型添加id
             HashValueMap[key] = (0, index_1.Hash)(JSON.stringify(intermediateData.value));
             // 处理重复value
