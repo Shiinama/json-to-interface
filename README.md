@@ -10,6 +10,8 @@ json 转为 typescript 接口
 # 关于使用
 
 通常来说，越完善的文档，提供的信息就越详细。
+
+
 npm i js-to-interface 基础包
 
 ```javascript
