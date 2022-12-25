@@ -29,7 +29,7 @@ function JsonToTS(json, options) {
         throw new Error('Only Object are supported');
     }
     // 返回数组结构的types
-    var typesValue = (0, get_types_value_1.getTypesValue)(json, finallyOptions);
+    var typesValue = (0, get_types_value_1.getTypesValue)(json);
     typesValue['key'] = finallyOptions.fKey;
     var data = (0, create_interface_1.out)(typesValue);
     return data;

@@ -5,7 +5,6 @@
 import { TypeGroup, finallyOptions } from '../../model/model';
 import { getPrimtiveTypeStr, getJsonType } from '../../until/index';
 
-function dealArray(obj) {}
 function dealObj(obj) {
   const seprateArr = Object.entries(obj).reduce((pre, [key, value]) => {
     const { types, type } = getTypesValue(value);
@@ -22,7 +21,7 @@ function dealObj(obj) {
 }
 
 // 检测器，类型的处理器
-export function getTypesValue(value: any, option?: finallyOptions) {
+export function getTypesValue(value: any) {
   const valueBtype = getJsonType(value);
   let typeValue;
   switch (valueBtype) {

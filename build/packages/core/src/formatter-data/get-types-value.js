@@ -7,7 +7,6 @@ exports.getTypesValue = void 0;
  */
 var model_1 = require("../../model/model");
 var index_1 = require("../../until/index");
-function dealArray(obj) { }
 function dealObj(obj) {
     var seprateArr = Object.entries(obj).reduce(function (pre, _a) {
         var key = _a[0], value = _a[1];
@@ -24,7 +23,7 @@ function dealObj(obj) {
     return seprateArr;
 }
 // 检测器，类型的处理器
-function getTypesValue(value, option) {
+function getTypesValue(value) {
     var valueBtype = (0, index_1.getJsonType)(value);
     var typeValue;
     switch (valueBtype) {

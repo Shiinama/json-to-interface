@@ -1,10 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.out = exports.switchQuoteType = void 0;
-/*
- * @Description:
- * @Date: 2022-12-18 16:24:48
- */
 var index_1 = require("../../until/index");
 var outArr = [];
 var HashValueMap = {};
@@ -152,6 +148,9 @@ function switchQuoteType(intermediateData, needOptimize) {
             }
             return "  ".concat(createKey(intermediateData.value, intermediateData.key), ": ").concat(capitalize(repetiteObj.key), "; \n");
         case 'Array':
+            if (types.length === 0) {
+                return "  ".concat(createKey(intermediateData.value, intermediateData.key), ": any[]; \n");
+            }
             var keyStr = dealArray({ types: types, key: key, value: value });
             return "  ".concat(createKey(intermediateData.value, intermediateData.key), ": ").concat(keyStr, "; \n");
         default:

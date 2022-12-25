@@ -1,5 +1,4 @@
-import { finallyOptions } from '../../model/model';
-export declare function getTypesValue(value: any, option?: finallyOptions): {
+export declare function getTypesValue(value: any): {
     type: string;
     types: any;
 } | {
