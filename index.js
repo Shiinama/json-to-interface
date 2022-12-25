@@ -5,14 +5,7 @@
 const JsonToTS = require('./build/packages/core/src/index').default;
 
 let json = {
-  a: {
-    a: 1,
-    b: 2
-  },
-  c: {
-    d: 1,
-    g: 2
-  }
+  a: []
 };
 debugger;
 const data = JsonToTS(json);

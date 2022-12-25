@@ -2,6 +2,7 @@
  * @Description:
  * @Date: 2022-12-18 16:24:48
  */
+import { optionsData } from 'packages/core/model/model';
 import { Hash, isObject } from '../../until/index';
 let outArr = [];
 let HashValueMap = {};
@@ -15,7 +16,7 @@ function capitalize(name: string): string {
   return name.charAt(0).toUpperCase() + name.slice(1);
 }
 // 处理重复interface value
-function repetite(key) {
+function repetite(key: string) {
   let arr = Object.values(HashValueMap).filter(i => i === HashValueMap[key]);
   if (arr.length > 1) {
     return {
@@ -43,7 +44,7 @@ function dealObj({ types, key }) {
   interfaceString += '}';
   outArr.push(interfaceString);
 }
-function margeTypesFn(array, margenLen) {
+function margeTypesFn(array, margenLen: number) {
   const commonObj = {};
   const commonKeys = [];
   const obj = {};
@@ -67,7 +68,7 @@ function margeTypesFn(array, margenLen) {
   }, []);
   return result;
 }
-function incrementKey(key) {
+function incrementKey(key: string): Function {
   let count = 0;
   let originKey = key;
   function fn() {
@@ -121,7 +122,10 @@ function dealArray({ types, key, value }) {
   }
 }
 
-export function switchQuoteType(intermediateData, needOptimize = false) {
+export function switchQuoteType(
+  intermediateData: optionsData,
+  needOptimize: boolean = false
+): string {
   // 先干掉空格
   intermediateData.key = intermediateData.key.replace(/\s/g, '');
   let { type, key, types, value } = intermediateData;
@@ -146,6 +150,12 @@ export function switchQuoteType(intermediateData, needOptimize = false) {
         intermediateData.key
       )}: ${capitalize(repetiteObj.key)}; \n`;
     case 'Array':
+      if (types.length === 0) {
+        return `  ${createKey(
+          intermediateData.value,
+          intermediateData.key
+        )}: any[]; \n`;
+      }
       const keyStr = dealArray({ types, key, value });
       return `  ${createKey(
         intermediateData.value,
@@ -156,7 +166,7 @@ export function switchQuoteType(intermediateData, needOptimize = false) {
   }
 }
 
-export function out(midData) {
+export function out(midData): string[] {
   HashValueMap = {};
   HashNameMap = {};
   outArr = [];

@@ -18,3 +18,10 @@ declare type DefaultOption = {
 export interface finallyOptions extends DefaultOption {
   fkey?: string;
 }
+
+export interface optionsData {
+  key: string;
+  type: string;
+  value: any;
+  types?: optionsData[];
+}

@@ -24,7 +24,7 @@ export default function JsonToTS<JsonTypes>(
     throw new Error('Only Object are supported');
   }
   // 返回数组结构的types
-  const typesValue = getTypesValue(json, finallyOptions);
+  const typesValue = getTypesValue(json);
   typesValue['key'] = finallyOptions.fKey;
   const data = out(typesValue);
   return data;
