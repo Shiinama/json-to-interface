@@ -145,24 +145,24 @@ export function switchQuoteType(
       if (!repetiteObj.isReped || needOptimize) {
         dealObj({ types, key });
       }
-      return `  ${createKey(
+      return `${createKey(
         intermediateData.value,
         intermediateData.key
       )}: ${capitalize(repetiteObj.key)}; \n`;
     case 'Array':
       if (types.length === 0) {
-        return `  ${createKey(
+        return `${createKey(
           intermediateData.value,
           intermediateData.key
         )}: any[]; \n`;
       }
       const keyStr = dealArray({ types, key, value });
-      return `  ${createKey(
+      return `${createKey(
         intermediateData.value,
         intermediateData.key
       )}: ${keyStr}; \n`;
     default:
-      return `  ${createKey(intermediateData.value, key)}: ${type}; \n`;
+      return `${createKey(intermediateData.value, key)}: ${type}; \n`;
   }
 }
 

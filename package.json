@@ -1,6 +1,6 @@
 {
   "name": "js-to-interface",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "一个js转ts的工具支持",
   "keywords": [
     "typescript",

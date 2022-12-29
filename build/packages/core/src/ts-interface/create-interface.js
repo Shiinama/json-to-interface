@@ -146,15 +146,15 @@ function switchQuoteType(intermediateData, needOptimize) {
             if (!repetiteObj.isReped || needOptimize) {
                 dealObj({ types: types, key: key });
             }
-            return "  ".concat(createKey(intermediateData.value, intermediateData.key), ": ").concat(capitalize(repetiteObj.key), "; \n");
+            return "".concat(createKey(intermediateData.value, intermediateData.key), ": ").concat(capitalize(repetiteObj.key), "; \n");
         case 'Array':
             if (types.length === 0) {
-                return "  ".concat(createKey(intermediateData.value, intermediateData.key), ": any[]; \n");
+                return "".concat(createKey(intermediateData.value, intermediateData.key), ": any[]; \n");
             }
             var keyStr = dealArray({ types: types, key: key, value: value });
-            return "  ".concat(createKey(intermediateData.value, intermediateData.key), ": ").concat(keyStr, "; \n");
+            return "".concat(createKey(intermediateData.value, intermediateData.key), ": ").concat(keyStr, "; \n");
         default:
-            return "  ".concat(createKey(intermediateData.value, key), ": ").concat(type, "; \n");
+            return "".concat(createKey(intermediateData.value, key), ": ").concat(type, "; \n");
     }
 }
 exports.switchQuoteType = switchQuoteType;

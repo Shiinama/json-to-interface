@@ -31,14 +31,18 @@ export default function JsonToTS(
     //去掉注释
     let reg =
       /("([^\\\"]*(\\.)?)*")|('([^\\\']*(\\.)?)*')|(\/{2,}.*?(\r|\n|$))|(\/\*(\n|.)*?\*\/)/g;
-    newJson = JSON.parse(
-      newJson.replace(reg, function (value) {
-        return /^\/{2,}/.test(value) || /^\/\*/.test(value) ? '' : value;
-      })
-    );
+    try {
+      newJson = JSON.parse(
+        newJson.replace(reg, function (value) {
+          return /^\/{2,}/.test(value) || /^\/\*/.test(value) ? '' : value;
+        })
+      );
+    } catch {
+      throw new Error('Non-standard  Json format | 非标准JSON格式');
+    }
   }
   if (!isObject(newJson)) {
-    throw new Error('Only Object are supported');
+    throw new Error('Only Object are supported | 仅支持对象');
   }
   // 返回数组结构的types
   const typesValue = getTypesValue(newJson);
