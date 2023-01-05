@@ -1,6 +1,6 @@
 {
   "name": "js-to-interface",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "一个js转ts的工具支持",
   "keywords": [
     "typescript",
@@ -20,6 +20,9 @@
     "test": "npm run build && mocha ./test/index.js && mocha ./build/test"
   },
   "dependencies": {
+    "@babel/core": "^7.20.7",
+    "@babel/generator": "^7.20.7",
+    "@babel/parser": "^7.20.7",
     "@types/mocha": "^10.0.1",
     "es7-shim": "^6.0.0",
     "hash.js": "^1.1.7"

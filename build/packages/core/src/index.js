@@ -19,17 +19,35 @@ var until_1 = require("../until");
 var get_types_value_1 = require("./formatter-data/get-types-value");
 var create_interface_1 = require("./ts-interface/create-interface");
 var es7_shim_1 = require("es7-shim/es7-shim");
+var parser_1 = require("@babel/parser");
 (0, es7_shim_1.shim)();
 var defaultOptions = {
     fKey: 'originKey'
 };
 function JsonToTS(json, options) {
     var finallyOptions = __assign(__assign({}, defaultOptions), options);
-    if (!(0, until_1.isObject)(json)) {
-        throw new Error('Only Object are supported');
+    var comments, newJson = JSON.parse(JSON.stringify(json));
+    if (typeof newJson === 'string') {
+        //筛选出注释数据
+        comments = (0, parser_1.parse)("let ".concat(finallyOptions.fKey, " = ").concat(newJson), {
+            sourceType: 'unambiguous'
+        });
+        //去掉注释
+        var reg = /("([^\\\"]*(\\.)?)*")|('([^\\\']*(\\.)?)*')|(\/{2,}.*?(\r|\n|$))|(\/\*(\n|.)*?\*\/)/g;
+        try {
+            newJson = JSON.parse(newJson.replace(reg, function (value) {
+                return /^\/{2,}/.test(value) || /^\/\*/.test(value) ? '' : value;
+            }));
+        }
+        catch (_a) {
+            throw new Error('Non-standard  Json format | 非标准JSON格式');
+        }
+    }
+    if (!(0, until_1.isObject)(newJson)) {
+        throw new Error('Only Object are supported | 仅支持对象');
     }
     // 返回数组结构的types
-    var typesValue = (0, get_types_value_1.getTypesValue)(json);
+    var typesValue = (0, get_types_value_1.getTypesValue)(newJson);
     typesValue['key'] = finallyOptions.fKey;
     var data = (0, create_interface_1.out)(typesValue);
     return data;

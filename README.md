@@ -1,17 +1,17 @@
 <!--
  * @Description:
- * @Date: 2022-12-12 16:21:55
+ * @Date: 2022-12-25 16:25:01
 -->
 
-# json-to-interface
+# **json to interface**
 
-json 转为 typescript 接口
+**json 转为 typescript 接口**
 
 # 关于使用
 
-npm i js-to-interface
+`npm i js-to-interface`
 
-这是属于 interface 基础 sdk
+[在线体验地址](http://www.wsy.yn.cn/tools/jstots)
 
 ```javascript
 const jstots = require('js-to-interface');
@@ -26,8 +26,8 @@ let json = {
   d: { f: 5 }
 };
 const data = jstots(json, { fKey: 'json' });
-data.forEach(i => {
-  console.log(i);
+data.forEach(interFaceStr => {
+  console.log(interFaceStr);
 });
 ```
 
@@ -64,39 +64,30 @@ const json = {
 经过转换
 
 ```typescript
-interface Test {
-  test: Array<TestRow>;
-}
-interface TestRow {
-  a: number;
-  b: number;
-}
-
-interface Json {
-  phone: number;
-  name: string;
-  objL: Obj;
-  sObj: SObj;
-  arr: (number | string)[];
-  list: List[];
-}
 interface Obj {
   cc: number;
   dd: number;
 }
-interface SObj {
+interface E {
+  c: string;
+}
+interface SOBj {
   dd: number;
   g: number;
   e: E;
 }
-interface E {
-  c: string;
-}
-
 interface List {
   cc: number;
   dd?: number;
   g?: number;
   bb?: number;
+}
+interface OriginKey {
+  phone: number;
+  name: string;
+  obj: Obj;
+  sOBj: SOBj;
+  arr: number[];
+  list: List[];
 }
 ```
